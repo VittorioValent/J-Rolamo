@@ -23,7 +23,7 @@ import lombok.Data;
 /**
  * Superclass for entity, provides auditing implementation.
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  * @see AuditDTO
  */
 @Data

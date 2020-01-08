@@ -4,7 +4,6 @@
 package ${package}.workshop.utils;
 
 import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -16,13 +15,17 @@ import lombok.Data;
 @AllArgsConstructor
 public class EntityInfo {
 
-	private String entityName;
+    private String entityName;
 
-	private List<FieldInfo> fields;
+    private List<FieldInfo> fields;
 
-	private Boolean auditable;
+    private Boolean auditable;
 
-	public String getEntityName() {
-		return GeneratorUtils.capitalize(this.entityName);
-	}
+    private ServiceTypeEnum serivceType;
+
+    private ControllerTypeEnum controllerType;
+
+    public String getEntityName() {
+        return GeneratorUtils.capitalize(this.entityName);
+    }
 }

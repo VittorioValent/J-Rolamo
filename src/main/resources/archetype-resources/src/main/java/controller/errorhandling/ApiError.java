@@ -13,7 +13,7 @@ import lombok.Data;
 
 /**
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  */
 @Data
 @AllArgsConstructor

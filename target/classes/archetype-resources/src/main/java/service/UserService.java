@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import ${package}.domain.User;
 import ${package}.domain.dto.UserDTO;
-import ${package}.service.generic.AbstractService;
+import ${package}.service.generic.PublicService;
 
 /**
  * @author Vittorio Valent
  *
  */
 @Service
-public class UserService extends AbstractService<User, UserDTO> {
+public class UserService extends PublicService<User, UserDTO> {
 
 }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 /**
  * Interface for all mapper methods implemented by Mapstruct
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  * 
  * @param <Entity>
  * @param <DTO>

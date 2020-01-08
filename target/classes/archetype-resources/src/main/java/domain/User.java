@@ -57,5 +57,4 @@ public class User implements Serializable {
 	private String nome;
 
 	private String cognome;
-
 }

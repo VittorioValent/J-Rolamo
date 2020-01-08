@@ -12,6 +12,8 @@ import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
 import ${package}.controller.generic.CrudController;
+import ${package}.controller.generic.ReadController;
+import ${package}.workshop.utils.ControllerTypeEnum;
 import ${package}.workshop.utils.GeneratorUtils;
 import java.io.IOException;
 import javax.lang.model.element.Modifier;
@@ -30,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 public class ControllerGenerator {
 
-    protected static void generateControllerClass(String entityName, Boolean auditable) throws IOException {
+    protected static void generateControllerClass(String entityName, ControllerTypeEnum controllerType, boolean authorization) throws IOException {
         ParameterSpec predicate = ParameterSpec.builder(com.querydsl.core.types.Predicate.class, "predicate")
                 .addAnnotation(AnnotationSpec.builder(QuerydslPredicate.class)
                         .addMember("root", "${symbol_dollar}T.class", ClassName.get(GeneratorUtils.ENTITY_PACKAGE, entityName))
@@ -74,38 +76,47 @@ public class ControllerGenerator {
                         PageRequest.class)
                 .build();
 
-        TypeSpec controllerClass = TypeSpec.classBuilder(entityName + "Controller")
-                .addModifiers(Modifier.PUBLIC)
-                .addAnnotation(RestController.class)
-                .addAnnotation(CrossOrigin.class)
-                .addAnnotation(AnnotationSpec.builder(RequestMapping.class)
-                        .addMember("value", "${symbol_dollar}S", "/api/public/" + entityName.toLowerCase())
-                        .build())
-                .superclass(ParameterizedTypeName.get(ClassName.get(CrudController.class),
-                        ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
-                .addMethod(getAll)
-                .addJavadoc(CodeBlock
-                        .builder()
-                        .add("@author Automatic Code Generator")
-                        .build())
-                .build();
+        String auth = "";
+        if (!authorization) {
+            auth = "public/";
+        }
 
-        if (auditable) {
-            controllerClass = TypeSpec.classBuilder(entityName + "Controller")
-                    .addModifiers(Modifier.PUBLIC)
-                    .addAnnotation(RestController.class)
-                    .addAnnotation(CrossOrigin.class)
-                    .addAnnotation(AnnotationSpec.builder(RequestMapping.class)
-                            .addMember("value", "${symbol_dollar}S", "/api/" + entityName.toLowerCase())
-                            .build())
-                    .superclass(ParameterizedTypeName.get(ClassName.get(CrudController.class),
-                            ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
-                    .addMethod(getAll)
-                    .addJavadoc(CodeBlock
-                            .builder()
-                            .add("@author Automatic Code Generator")
-                            .build())
-                    .build();
+        TypeSpec controllerClass = null;
+        switch (controllerType) {
+            case READ:
+                controllerClass = TypeSpec.classBuilder(entityName + "Controller")
+                        .addModifiers(Modifier.PUBLIC)
+                        .addAnnotation(RestController.class)
+                        .addAnnotation(CrossOrigin.class)
+                        .addAnnotation(AnnotationSpec.builder(RequestMapping.class)
+                                .addMember("value", "${symbol_dollar}S", "/api/" + auth + entityName.toLowerCase())
+                                .build())
+                        .superclass(ParameterizedTypeName.get(ClassName.get(ReadController.class),
+                                ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
+                        .addMethod(getAll)
+                        .addJavadoc(CodeBlock
+                                .builder()
+                                .add("@author Automatic Code Generator")
+                                .build())
+                        .build();
+                break;
+            case CRUD:
+                controllerClass = TypeSpec.classBuilder(entityName + "Controller")
+                        .addModifiers(Modifier.PUBLIC)
+                        .addAnnotation(RestController.class)
+                        .addAnnotation(CrossOrigin.class)
+                        .addAnnotation(AnnotationSpec.builder(RequestMapping.class)
+                                .addMember("value", "${symbol_dollar}S", "/api/" + auth + entityName.toLowerCase())
+                                .build())
+                        .superclass(ParameterizedTypeName.get(ClassName.get(CrudController.class),
+                                ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
+                        .addMethod(getAll)
+                        .addJavadoc(CodeBlock
+                                .builder()
+                                .add("@author Automatic Code Generator")
+                                .build())
+                        .build();
+                break;
         }
 
         JavaFile javaFile = JavaFile.builder(GeneratorUtils.CONTROLLER_PACKAGE, controllerClass)

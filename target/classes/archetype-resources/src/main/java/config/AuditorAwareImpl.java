@@ -13,7 +13,7 @@ import ${package}.security.utils.LoggedUser;
 
 /**
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  */
 public class AuditorAwareImpl implements AuditorAware<String> {
 

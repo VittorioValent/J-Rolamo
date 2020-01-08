@@ -11,7 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 /**
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  */
 @Configuration
 public class MessageConfig {

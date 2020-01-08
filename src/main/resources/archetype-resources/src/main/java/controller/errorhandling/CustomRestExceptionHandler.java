@@ -31,7 +31,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 /**
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  */
 @ControllerAdvice
 public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {

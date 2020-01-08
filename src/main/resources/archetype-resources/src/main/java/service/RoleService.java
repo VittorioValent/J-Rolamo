@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import ${package}.domain.Role;
 import ${package}.domain.dto.RoleDTO;
-import ${package}.service.generic.AbstractService;
+import ${package}.service.generic.PublicService;
 
 /**
  * @author Vittorio Valent
  *
  */
 @Service
-public class RoleService extends AbstractService<Role, RoleDTO> {
+public class RoleService extends PublicService<Role, RoleDTO> {
 
 }

@@ -58,10 +58,16 @@
       <directory></directory>
       <includes>
         <include>.gitignore</include>
-        <include>mvnw</include>
         <include>mvnw.cmd</include>
+        <include>mvnw</include>
+        <include>.springBeans</include>
         <include>README.md</include>
       </includes>
     </fileSet>
   </fileSets>
+  <requiredProperties>
+    <requiredProperty key="name">
+        <defaultValue>${name.property}</defaultValue>
+    </requiredProperty>
+</requiredProperties>
 </archetype-descriptor>

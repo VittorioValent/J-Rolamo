@@ -4,11 +4,11 @@
 
   <groupId>it.contrader</groupId>
   <artifactId>j-rolamo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
-
   <name>j-rolamo</name>
-
+  <description>Build your own web-app backend in few steps</description>
+  
   <build>
     <extensions>
       <extension>
@@ -27,8 +27,6 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <description>J-Rolamo, generate your own Java Web App with few steps!</description>
 
   <developers>
     <developer>

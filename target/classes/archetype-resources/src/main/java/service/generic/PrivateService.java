@@ -3,8 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.service.generic;
 
-import javax.annotation.Resource;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -28,10 +26,7 @@ import ${package}.domain.generic.AuditDTO;
  * @see IsOwnerPreAuth
  * @see AuditDTO
  */
-public abstract class PrivateService<Entity, DTO extends AuditDTO> extends ReadOnlyService<Entity, DTO> {
-
-	@Resource
-	PrivateService<Entity, DTO> service;
+public abstract class PrivateService<Entity, DTO extends AuditDTO> extends ProtectedService<Entity, DTO> {
 
 	@Override
 	@IsOwnerPostAuth

@@ -26,7 +26,7 @@ import ${package}.security.RequestFilter;
 /**
  * Spring Security Configuration Class
  *
- * @author Vittorio Valent
+ * @author Vittorio Andreoni
  */
 @Configuration
 @EnableWebSecurity
