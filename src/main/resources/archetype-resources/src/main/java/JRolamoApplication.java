@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class SampleProjectApplication {
+public class JRolamoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SampleProjectApplication.class, args);

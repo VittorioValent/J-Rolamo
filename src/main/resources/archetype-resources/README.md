@@ -1,4 +1,4 @@
-# ${name}
+# J-Rolamo Application
 
 Hi! Welcome to your first J-Rolamo App! add here your own description...
 

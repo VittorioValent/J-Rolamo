@@ -65,9 +65,4 @@
       </includes>
     </fileSet>
   </fileSets>
-  <requiredProperties>
-    <requiredProperty key="name">
-        <defaultValue>${name.property}</defaultValue>
-    </requiredProperty>
-</requiredProperties>
 </archetype-descriptor>

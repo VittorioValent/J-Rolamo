@@ -1,4 +1,4 @@
-# J-Rolamo, here help you learn BASICS!
+# J-Rolamo says: LEARN THE BASICS!
 
 Description to be added
 
