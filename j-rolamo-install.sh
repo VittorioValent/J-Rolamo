@@ -57,7 +57,7 @@ grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
 source .bash_profile
 fi
 
-echo " alias j-rolamo='j-rolamo.sh" >> .bashrc
+echo "alias j-rolamo='j-rolamo.sh'" >> .bashrc
 
 echo "[INFO] To start J-Rolamo type 'j-rolamo' in your workspace directory "
 echo
