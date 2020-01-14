@@ -5,14 +5,17 @@ package ${package}.domain.dto;
 
 import javax.validation.constraints.NotEmpty;
 
+import ${package}.domain.generic.AuditDTO;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Vittorio Valent
  *
  */
 @Data
-public class UserDTO {
+@EqualsAndHashCode(callSuper = false)
+public class UserDTO extends AuditDTO {
 
 	private Long id;
 
@@ -32,8 +35,8 @@ public class UserDTO {
 
 	private Boolean enabled = Boolean.TRUE;
 
-	private String nome;
+	private String name;
 
-	private String cognome;
+	private String surname;
 
 }

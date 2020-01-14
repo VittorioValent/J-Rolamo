@@ -23,6 +23,10 @@ public class UserSpecification extends EntitySpecification<User> {
 
 	private static final long serialVersionUID = 7514734460419746896L;
 
+	public UserSpecification(User filter) {
+		this.filter = filter;
+	}
+
 	@Override
 	public Predicate toPredicate(Root<User> r, CriteriaQuery<?> q, CriteriaBuilder cb) {
 		List<Predicate> p = new ArrayList<>();
@@ -31,16 +35,13 @@ public class UserSpecification extends EntitySpecification<User> {
 			p.add(cb.equal(r.get("id"), filter.getId()));
 		}
 		if (filter.getNome() != null) {
-			p.add(cb.equal(r.get("nome"), filter.getNome()));
+			p.add(cb.like(r.get("nome"), "%" + filter.getNome() + "%"));
 		}
 		if (filter.getCognome() != null) {
-			p.add(cb.equal(r.get("descrizione"), filter.getCognome()));
+			p.add(cb.equal(r.get("cognome"), filter.getCognome()));
 		}
 		if (filter.getUsername() != null) {
-			p.add(cb.equal(r.get("nome"), filter.getUsername()));
-		}
-		if (filter.getPassword() != null) {
-			p.add(cb.equal(r.get("descrizione"), filter.getPassword()));
+			p.add(cb.equal(r.get("username"), filter.getUsername()));
 		}
 		return q.where(cb.and(p.toArray(new Predicate[0]))).distinct(true).getRestriction();
 	}

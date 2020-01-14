@@ -26,10 +26,10 @@ public class CodeGenerator {
             EntityGenerator.generateEntityClass(entityInfo.getEntityName(), entityInfo.getFields(), auditable);
             DTOGenerator.generateDTOClass(entityInfo.getEntityName(), entityInfo.getFields(), auditable);
             SpecificationGenerator.generateSpecificationClass(entityInfo.getEntityName(), entityInfo.getFields());
-            RepositoryGenerator.generateRepositoryInterface(entityInfo.getEntityName(), auditable);
+            RepositoryGenerator.generateRepositoryInterface(entityInfo.getEntityName(), entityInfo.getSerivceType());
             MapperGenerator.generateMapperInterface(entityInfo.getEntityName());
             ServiceGenerator.generateServiceClass(entityInfo.getEntityName(), entityInfo.getSerivceType());
-            ControllerGenerator.generateControllerClass(entityInfo.getEntityName(), entityInfo.getControllerType(), auditable);
+            ControllerGenerator.generateControllerClass(entityInfo.getEntityName(), entityInfo.getControllerType(), entityInfo.getSerivceType());
         } catch (IOException e) {
             System.out.println("Impossible to generate required code ${symbol_escape}n");
             e.printStackTrace();

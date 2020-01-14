@@ -43,5 +43,8 @@ public interface IRepository<Entity>
 	default void customize(QuerydslBindings bindings, EntityPath<Entity> qEntity) {
 		// Removes case-sentive from SQL LIKE
 		bindings.bind(String.class).first((SingleValueBinding<StringPath, String>) StringExpression::containsIgnoreCase);
+		// Expression of startWith Strings
+		// bindings.bind(QEntity.entityname.field).first((SingleValueBinding<StringPath,
+		// String>) StringExpression::startsWith);
 	}
 }

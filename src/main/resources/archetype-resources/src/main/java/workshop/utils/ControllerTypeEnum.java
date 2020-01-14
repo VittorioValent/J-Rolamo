@@ -9,7 +9,13 @@ package ${package}.workshop.utils;
  */
 public enum ControllerTypeEnum {
 
-    CRUD,
-    READ
+    READ,
+    CRUD
+//    PRIVATE_CRUD,
+//    PRIVATE_READ,
+//    PROTECTED_CRUD,
+//    //    PROTECTED_READ, equals to PUBLIC_READ
+//    PUBLIC_CRUD,
+//    PUBLIC_READ
 
 }

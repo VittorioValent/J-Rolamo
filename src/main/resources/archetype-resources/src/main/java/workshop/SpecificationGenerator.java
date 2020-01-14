@@ -80,6 +80,11 @@ public class SpecificationGenerator {
 				.addStatement("return q.where(cb.and(p.toArray(new Predicate[0]))).distinct(true).getRestriction()")
 				.build();
 
+		MethodSpec constructor = MethodSpec.constructorBuilder().addParameter(
+				ClassName.get(GeneratorUtils.ENTITY_PACKAGE, entityName), "filter")
+				.addStatement("this.filter = filter")
+				.build();
+
 		TypeSpec specificationClass = TypeSpec.classBuilder(entityName + "Specification")
 				.addModifiers(Modifier.PUBLIC)
 				.addAnnotation(Setter.class)
@@ -88,6 +93,7 @@ public class SpecificationGenerator {
 				.superclass(ParameterizedTypeName.get(ClassName.get(EntitySpecification.class),
 						ClassName.get(GeneratorUtils.ENTITY_PACKAGE, entityName)))
 				.addField(serialVersionUID)
+				.addMethod(constructor)
 				.addMethod(toPredicate)
 				.addJavadoc(CodeBlock
 						.builder()

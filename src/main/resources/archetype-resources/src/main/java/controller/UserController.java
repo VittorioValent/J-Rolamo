@@ -3,6 +3,12 @@
 #set( $symbol_escape = '\' )
 package ${package}.controller;
 
+import com.querydsl.core.types.Predicate;
+import io.swagger.annotations.Api;
+import ${package}.controller.generic.PrivateCrudController;
+import ${package}.domain.User;
+import ${package}.domain.dto.UserDTO;
+import ${package}.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
@@ -12,14 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.querydsl.core.types.Predicate;
-
-import io.swagger.annotations.Api;
-import ${package}.controller.generic.CrudController;
-import ${package}.domain.User;
-import ${package}.domain.dto.UserDTO;
-import ${package}.repository.UserRepository;
-
 /**
  * @author Vittorio Valent
  *
@@ -28,16 +26,16 @@ import ${package}.repository.UserRepository;
 @RestController
 @RequestMapping("/api/user")
 @Api(value = "Gestione User")
-public class UserController extends CrudController<UserDTO> {
+public class UserController extends PrivateCrudController<UserDTO> {
 
-	@Override
-	public Page<UserDTO> getAll(
-			@QuerydslPredicate(root = User.class, bindings = UserRepository.class) Predicate predicate,
-			@RequestParam(defaultValue = "20") Integer pageSize,
-			@RequestParam(defaultValue = "0") Integer pageNumber,
-			@RequestParam(defaultValue = "ASC") Direction direction,
-			@RequestParam(defaultValue = "id") String sortField) {
-		return service.getAll(predicate, PageRequest.of(pageNumber, pageSize, direction, sortField));
-	}
+    @Override
+    public Page<UserDTO> getAll(
+            @QuerydslPredicate(root = User.class, bindings = UserRepository.class) Predicate predicate,
+            @RequestParam(defaultValue = "20") Integer pageSize,
+            @RequestParam(defaultValue = "0") Integer pageNumber,
+            @RequestParam(defaultValue = "ASC") Direction direction,
+            @RequestParam(defaultValue = "id") String sortField) {
+        return service.getAll(predicate, PageRequest.of(pageNumber, pageSize, direction, sortField));
+    }
 
 }

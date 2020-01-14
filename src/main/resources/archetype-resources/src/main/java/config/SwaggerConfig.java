@@ -80,6 +80,21 @@ public class SwaggerConfig {
 	}
 
 	/**
+	 * Actuator configuration Bean
+	 */
+	@Bean
+	public Docket apiActuator() {
+		Docket docket = new Docket(DocumentationType.SWAGGER_2)
+				.groupName("Actuators Endpoint").select()
+				.paths(PathSelectors.ant("/actuator/**")).build()
+				.pathMapping("/")
+				.securityContexts(Lists.newArrayList(securityContext()))
+				.securitySchemes(Lists.newArrayList(apiKey()))
+				.useDefaultResponseMessages(false);
+		return docket;
+	}
+
+	/**
 	 * Defines which type of authorization is to be used
 	 */
 	private SecurityReference defaultAuth() {
