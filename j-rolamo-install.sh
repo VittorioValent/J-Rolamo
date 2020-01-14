@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Author: Vittorio Valent
 #
 
@@ -41,17 +41,23 @@ mkdir -p bin
 
 mv -f ./j-rolamo.sh ./bin/
 
-LINE='export PATH=$PATH":$HOME/bin"'
-FILE='.profile'
+FILE=".profile"
+if [ ! -f "$FILE" ]
+then
+LINE='export PATH=$PATH:$HOME/bin'
 grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
-
-
-grep -q grep ~/.bashrc alias\ j-rolamo 
-if [ $? -eq 1 ]; then
-echo " alias j-rolamo='. ~/bin/j-rolamo.sh' " >> ~/.bashrc
+source .profile
 fi
 
-. ~/.profile
+FILE=".bash_profile"
+if [ ! -f "$FILE" ]
+then
+LINE='export PATH=$PATH:$HOME/bin'
+grep -qF "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+source .bash_profile
+fi
+
+echo " alias j-rolamo='j-rolamo.sh" >> .bashrc
 
 echo "[INFO] To start J-Rolamo type 'j-rolamo' in your workspace directory "
 echo
