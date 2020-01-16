@@ -1,0 +1,15 @@
+{
+    "id": "View-ttorio",
+    "title": "View-ttorio",
+    "type": "object",
+    "description": "Test schematic",
+    "properties": {
+        "name":{ 
+            "type":"string",
+            "description": "Entity Name"
+        }
+    },
+    "required": [
+      "name"
+    ]
+  }

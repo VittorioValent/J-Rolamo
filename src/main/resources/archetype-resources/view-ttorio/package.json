@@ -1,0 +1,26 @@
+{
+  "name": "@contrader/view-ttorio",
+  "version": "0.0.0",
+  "description": "Description to be added",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^8.3.23",
+    "@angular-devkit/schematics": "^8.3.23",
+    "@angular/cli": "^8.3.23",
+    "@angular/http": "^7.2.16",
+    "@types/jasmine": "^3.3.9",
+    "@types/node": "^8.0.31",
+    "jasmine": "^3.3.1",
+    "typescript": "~3.5.3"
+  }
+}
