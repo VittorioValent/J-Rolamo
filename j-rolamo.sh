@@ -70,3 +70,17 @@ else
 	echo "Project created succesfully, have fun!"
 fi
 
+cd $projectname/frontend
+
+npm install
+
+ng add ~/View-ttorio
+
+npm install
+
+if [ $run = y ];
+	then ng serve --open
+fi
+
+
+
