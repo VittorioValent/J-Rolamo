@@ -29,3 +29,51 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### Angular Frontend ###
+
+# compiled output
+**/frontend/dist
+**/frontend/tmp
+**/frontend/out-tsc
+**/# Only exists if Bazel was run
+**/frontend/bazel-out
+
+# dependencies
+**/node_modules
+
+# profiling files
+**/frontend/chrome-profiler-events*.json
+**/frontend/speed-measure-plugin*.json
+
+# IDEs and editors
+**/frotend/**/.idea
+**/frotend/.project
+**/frotend/.classpath
+**/frotend/.c9/
+**/frotend/*.launch
+**/frotend/.settings/
+**/frotend/*.sublime-workspace
+
+# IDE - VSCode
+**/forntend/.vscode/*
+**/forntend/!.vscode/settings.json
+**/forntend/!.vscode/tasks.json
+**/forntend/!.vscode/launch.json
+**/forntend/!.vscode/extensions.json
+**/forntend/.history/*
+
+# misc
+**/frontend/.sass-cache
+**/frontend/connect.lock
+**/frontend/coverage
+**/frontend/libpeerconnection.log
+**/frontendnpm-debug.log
+**/frontendyarn-error.log
+**/frontendtestem.log
+**/frontend/typings
+
+# System Files
+**/frontend/.DS_Store
+**/frontend/Thumbs.db
