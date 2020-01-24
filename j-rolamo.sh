@@ -70,7 +70,7 @@ else
 	echo "Project created succesfully, have fun!"
 fi
 
-cd $projectname/frontend
+cd $projectname/frontend/
 
 npm install
 
