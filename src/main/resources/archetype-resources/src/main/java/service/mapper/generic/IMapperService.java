@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
  * 
  * @author Vittorio Valent
  * @author sinan.yumak
+ * @since 1.0
  */
 @Component
 @SuppressWarnings({"rawtypes", "unchecked"})

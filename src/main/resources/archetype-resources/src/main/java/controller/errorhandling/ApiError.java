@@ -14,6 +14,7 @@ import lombok.Data;
 /**
  *
  * @author Vittorio Andreoni
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

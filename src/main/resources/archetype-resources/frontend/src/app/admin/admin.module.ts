@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { UserComponent } from './user/user.component';
@@ -10,7 +10,10 @@ import { FormsModule, FormBuilder } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [UserComponent, WorkshopComponent],
+  declarations: [
+    UserComponent,
+    WorkshopComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -26,6 +29,8 @@ import { FormsModule, FormBuilder } from '@angular/forms';
     MatSlideToggleModule,
     MatSelectModule
   ],
-  providers:[FormBuilder]
+  providers: [
+    FormBuilder
+  ]
 })
 export class AdminModule { }

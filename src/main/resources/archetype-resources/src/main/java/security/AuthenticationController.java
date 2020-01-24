@@ -23,6 +23,7 @@ import ${package}.domain.dto.UserDTO;
 import ${package}.security.utils.JWTRequest;
 import ${package}.security.utils.JWTResponse;
 import ${package}.security.utils.JWTUtils;
+import ${package}.security.utils.LoggedUser;
 
 /**
  * Controller that handles authentication and registration. With
@@ -32,6 +33,7 @@ import ${package}.security.utils.JWTUtils;
  * @author Vittorio Valent
  *
  * @see SecurityConfig
+ * @since 1.0
  */
 @RestController
 @CrossOrigin
@@ -54,7 +56,8 @@ public class AuthenticationController {
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 		final String token = jwtTokenUtil.generateToken(userDetails);
 
-		return ResponseEntity.ok(new JWTResponse(token));
+		return ResponseEntity
+				.ok(new JWTResponse(token, ((LoggedUser) userDetails).getUsername(), ((LoggedUser) userDetails).getRole()));
 	}
 
 	@PostMapping("/register")

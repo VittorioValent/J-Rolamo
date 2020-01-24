@@ -26,6 +26,7 @@ import ${package}.security.utils.JWTUtils;
  * client is not authenticated.
  * 
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 @Component

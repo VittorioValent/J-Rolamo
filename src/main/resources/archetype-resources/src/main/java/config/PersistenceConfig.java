@@ -12,6 +12,7 @@ import org.springframework.security.data.repository.query.SecurityEvaluationCont
 /**
  *
  * @author Vittorio Andreoni
+ * @since 1.0
  */
 @Configuration
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")

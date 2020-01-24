@@ -16,6 +16,7 @@ import org.springframework.data.jpa.repository.Query;
  * will not be set on.
  * 
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 @Target(ElementType.METHOD)

@@ -23,7 +23,7 @@ import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 
 import ${package}.domain.generic.AuditModel;
-import ${package}.workshop.utils.FieldInfo;
+import ${package}.workshop.domain.FieldInfo;
 import ${package}.workshop.utils.GeneratorUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +33,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 public class EntityGenerator {

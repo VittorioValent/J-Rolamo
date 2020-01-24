@@ -24,6 +24,7 @@ import ${package}.security.AuthenticationController;
  * @author Vittorio Valent
  *
  * @see AuthenticationController
+ * @since 1.0
  */
 @Component
 @PropertySource("classpath:security/security.properties")

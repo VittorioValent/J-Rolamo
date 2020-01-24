@@ -25,7 +25,7 @@
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "view-ttorio": "file:../../../ANGULAR_WORKSPACE/view-ttorio",
+    "view-ttorio": "file:../../../ANGULAR_WORKSPACE/View-ttorio",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

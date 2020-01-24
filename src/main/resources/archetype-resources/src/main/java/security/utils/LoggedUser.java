@@ -20,6 +20,7 @@ import lombok.Data;
  * Custom Implementation of {@link UserDetails}
  * 
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 @Data

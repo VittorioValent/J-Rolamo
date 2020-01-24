@@ -51,12 +51,6 @@
 			</includes>
 		</fileSet>
 		<fileSet encoding="UTF-8">
-			<directory>view-ttorio</directory>
-			<includes>
-				<include>*</include>
-			</includes>
-		</fileSet>
-				<fileSet encoding="UTF-8">
 			<directory>frontend</directory>
 			<includes>
 				<include>*</include>

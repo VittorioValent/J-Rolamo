@@ -36,6 +36,7 @@ import ${package}.workshop.utils.ServiceTypeEnum;
 
 /**
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 public class ControllerGenerator {

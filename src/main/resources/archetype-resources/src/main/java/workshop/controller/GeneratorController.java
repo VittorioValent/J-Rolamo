@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.workshop.controller;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,13 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import ${package}.actuator.ApplicationService;
 import ${package}.workshop.CodeGenerator;
+import ${package}.workshop.domain.EntityInfo;
+import ${package}.workshop.domain.FieldInfo;
+import ${package}.workshop.repository.EntityInfoRepository;
+import ${package}.workshop.repository.FieldInfoRepository;
 import ${package}.workshop.utils.ControllerTypeEnum;
-import ${package}.workshop.utils.EntityInfo;
+import ${package}.workshop.utils.ScriptExecutor;
 import ${package}.workshop.utils.ServiceTypeEnum;
 
 /**
  * @author Vittorio Valent
- *
+ * @since 1.0
  */
 @RestController
 @CrossOrigin
@@ -34,17 +38,47 @@ public class GeneratorController {
 	@Autowired
 	ApplicationService applicationService;
 
+	@Autowired
+	EntityInfoRepository entityInfoRepository;
+
+	@Autowired
+	FieldInfoRepository fieldInfoRepository;
+
+	@Autowired
+	ScriptExecutor scriptExecutor;
+
 	@GetMapping("/entityflow")
 	public void generateEntityFlow(@RequestParam String entityName, @RequestParam Boolean auditable,
-			@RequestParam ServiceTypeEnum serivceType, @RequestParam ControllerTypeEnum controllerType) {
+			@RequestParam ServiceTypeEnum serviceType, @RequestParam ControllerTypeEnum controllerType) {
+
+		EntityInfo entityInfo = EntityInfo.builder()
+				.auditable(auditable)
+				.controllerType(controllerType)
+				.entityName(entityName)
+				.serviceType(serviceType)
+				.build();
 		CodeGenerator
-				.generateEntityFlow(new EntityInfo(entityName, new ArrayList<>(), auditable, serivceType, controllerType));
+				.generateEntityFlow(entityInfoRepository.save(entityInfo));
+
 		applicationService.restart();
 	}
 
 	@PostMapping("/entityflow")
 	public void generateEntityFlow(@RequestBody EntityInfo entityInfo) {
-		CodeGenerator.generateEntityFlow(entityInfo);
-		applicationService.restart();
+		try {
+			scriptExecutor.createFrontendClasses(entityInfo.getEntityName(), entityInfo.getFields());
+
+			entityInfo = entityInfoRepository.save(entityInfo);
+			CodeGenerator.generateEntityFlow(entityInfo);
+
+			for (FieldInfo field : entityInfo.getFields()) {
+				field.setEntityInfo(entityInfo);
+				fieldInfoRepository.save(field);
+			}
+
+			applicationService.restart();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

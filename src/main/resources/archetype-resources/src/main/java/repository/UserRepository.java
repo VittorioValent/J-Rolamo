@@ -11,6 +11,7 @@ import ${package}.repository.generic.IRepository;
 /**
  * @author Vittorio Valent
  *
+ * @since 1.0
  */
 @Repository
 public interface UserRepository extends IRepository<User> {

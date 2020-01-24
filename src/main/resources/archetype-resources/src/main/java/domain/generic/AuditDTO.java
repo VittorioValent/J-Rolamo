@@ -6,6 +6,7 @@ package ${package}.domain.generic;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Provides Auditing fields and method-level security access for DTOs
@@ -13,9 +14,13 @@ import lombok.Data;
  * @author Vittorio Valent
  *
  * @see AuditModel
+ * @since 1.0
  */
 @Data
-public abstract class AuditDTO {
+@EqualsAndHashCode(callSuper = false)
+public abstract class AuditDTO extends AbstractDTO {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Indicates when the object was created first

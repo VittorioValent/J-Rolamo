@@ -18,6 +18,7 @@ import ${package}.domain.generic.EntitySpecification;
  * 
  * @author Vittorio Valent
  *
+ * @since 1.0
  */
 public class UserSpecification extends EntitySpecification<User> {
 
@@ -34,11 +35,11 @@ public class UserSpecification extends EntitySpecification<User> {
 		if (filter.getId() != null) {
 			p.add(cb.equal(r.get("id"), filter.getId()));
 		}
-		if (filter.getNome() != null) {
-			p.add(cb.like(r.get("nome"), "%" + filter.getNome() + "%"));
+		if (filter.getName() != null) {
+			p.add(cb.like(r.get("nome"), "%" + filter.getName() + "%"));
 		}
-		if (filter.getCognome() != null) {
-			p.add(cb.equal(r.get("cognome"), filter.getCognome()));
+		if (filter.getSurname() != null) {
+			p.add(cb.equal(r.get("cognome"), filter.getSurname()));
 		}
 		if (filter.getUsername() != null) {
 			p.add(cb.equal(r.get("username"), filter.getUsername()));

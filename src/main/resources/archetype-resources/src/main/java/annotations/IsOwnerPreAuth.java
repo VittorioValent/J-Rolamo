@@ -16,6 +16,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
  * parameter entity is not the logged user nor an admin.
  * 
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 @Target(ElementType.METHOD)

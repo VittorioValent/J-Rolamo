@@ -27,6 +27,7 @@ import ${package}.service.mapper.UserMapper;
  * @author Vittorio Valent
  *
  * @see PasswordEncoder
+ * @since 1.0
  */
 @Service
 public class JWTUserService implements UserDetailsService {
@@ -50,7 +51,8 @@ public class JWTUserService implements UserDetailsService {
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
-		return new LoggedUser(user.getUsername(), user.getPassword(), user.getRole(), user.getAccountNonExpired(), user.getCredentialsNonExpired(), user.getAccountNonLocked(), user.getEnabled());
+		return new LoggedUser(user.getUsername(), user.getPassword(), user.getRole(), user.getAccountNonExpired(),
+				user.getCredentialsNonExpired(), user.getAccountNonLocked(), user.getEnabled());
 	}
 
 	public UserDTO save(UserDTO dto) {

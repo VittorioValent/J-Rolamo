@@ -24,7 +24,7 @@ import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.WildcardTypeName;
 
 import ${package}.domain.generic.EntitySpecification;
-import ${package}.workshop.utils.FieldInfo;
+import ${package}.workshop.domain.FieldInfo;
 import ${package}.workshop.utils.GeneratorUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +32,7 @@ import lombok.Setter;
 
 /**
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 public class SpecificationGenerator {

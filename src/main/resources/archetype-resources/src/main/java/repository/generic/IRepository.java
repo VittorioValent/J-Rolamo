@@ -30,6 +30,7 @@ import ${package}.domain.generic.EntitySpecification;
  *
  * @param <Entity>
  * @see EntitySpecification
+ * @since 1.0
  */
 @NoRepositoryBean
 public interface IRepository<Entity>

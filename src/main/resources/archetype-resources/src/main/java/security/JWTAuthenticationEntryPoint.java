@@ -21,6 +21,7 @@ import ${package}.config.SecurityConfig;
  * @author Vittorio Valent
  *
  * @see SecurityConfig
+ * @since 1.0
  */
 @Component
 public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {

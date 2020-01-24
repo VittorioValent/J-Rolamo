@@ -9,6 +9,7 @@ import org.mapstruct.Named;
 
 /**
  * @author Vittorio Valent
+ * @since 1.0
  *
  */
 public interface ListMapper {

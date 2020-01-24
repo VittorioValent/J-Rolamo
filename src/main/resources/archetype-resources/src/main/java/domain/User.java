@@ -24,6 +24,7 @@ import lombok.NoArgsConstructor;
 /**
  * @author Vittorio Valent
  *
+ * @since 1.0
  */
 @Data
 @Entity
@@ -61,8 +62,8 @@ public class User extends AuditModel implements Serializable {
 	@JoinColumn
 	private Role role;
 
-	private String nome;
+	private String name;
 
-	private String cognome;
+	private String surname;
 
 }

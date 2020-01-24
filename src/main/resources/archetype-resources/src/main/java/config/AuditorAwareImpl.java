@@ -14,6 +14,7 @@ import ${package}.security.utils.LoggedUser;
 /**
  *
  * @author Vittorio Andreoni
+ * @since 1.0
  */
 public class AuditorAwareImpl implements AuditorAware<String> {
 

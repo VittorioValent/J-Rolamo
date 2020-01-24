@@ -25,6 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * 
  * @author Vittorio Valent
  *
+ * @since 1.0
  */
 @Configuration
 @EnableSwagger2

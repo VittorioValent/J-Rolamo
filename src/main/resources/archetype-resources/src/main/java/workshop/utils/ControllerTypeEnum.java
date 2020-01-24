@@ -5,17 +5,21 @@ package ${package}.workshop.utils;
 
 /**
  *
- * @author vittorio
+ * @author Vittorio Andreoni
+ * @since 1.0
  */
 public enum ControllerTypeEnum {
 
-    READ,
-    CRUD
-//    PRIVATE_CRUD,
-//    PRIVATE_READ,
-//    PROTECTED_CRUD,
-//    //    PROTECTED_READ, equals to PUBLIC_READ
-//    PUBLIC_CRUD,
-//    PUBLIC_READ
+	READ("READ"), CRUD("CRUD");
+
+	private String controllerType;
+
+	ControllerTypeEnum(String controllerType) {
+		this.controllerType = controllerType;
+	}
+
+	public String getControllerType() {
+		return controllerType;
+	}
 
 }

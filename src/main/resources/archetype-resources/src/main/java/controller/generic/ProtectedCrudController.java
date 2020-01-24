@@ -3,14 +3,17 @@
 #set( $symbol_escape = '\' )
 package ${package}.controller.generic;
 
-import ${package}.service.generic.ICrudService;
 import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import ${package}.domain.generic.AbstractDTO;
+import ${package}.service.generic.ICrudService;
 
 /**
  * This controller contains all CRUD methods. Notice that method
@@ -21,27 +24,28 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @param <DTO>
  * @see ReadController
  * @see ICrudService
+ * @since 1.0
  */
-public abstract class ProtectedCrudController<DTO> extends PublicReadController<DTO> {
+public abstract class ProtectedCrudController<DTO extends AbstractDTO> extends PublicReadController<DTO> {
 
-    @PostMapping("/create")
-    public DTO create(@Valid @RequestBody DTO dto) {
-        return service.create(dto);
-    }
+	@PostMapping("/create")
+	public DTO create(@Valid @RequestBody DTO dto) {
+		return service.create(dto);
+	}
 
-    @DeleteMapping("/delete")
-    public void delete(@RequestBody DTO dto) {
-        service.delete(dto);
-    }
+	@DeleteMapping("/delete")
+	public void delete(@RequestBody DTO dto) {
+		service.delete(dto);
+	}
 
-    @PutMapping("/update")
-    public DTO update(@RequestBody DTO dto) {
-        return service.update(dto);
-    }
+	@PutMapping("/update")
+	public DTO update(@RequestBody DTO dto) {
+		return service.update(dto);
+	}
 
-    @PatchMapping("/update")
-    public DTO merge(@RequestParam Long id, @RequestBody DTO dto) {
+	@PatchMapping("/update")
+	public DTO merge(@RequestParam Long id, @RequestBody DTO dto) {
 
-        return service.merge(id, dto);
-    }
+		return service.merge(id, dto);
+	}
 }

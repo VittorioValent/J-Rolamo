@@ -12,10 +12,13 @@ import lombok.EqualsAndHashCode;
 /**
  * @author Vittorio Valent
  *
+ * @since 1.0
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class UserDTO extends AuditDTO {
+
+	private static final long serialVersionUID = 7373450660492687410L;
 
 	private Long id;
 

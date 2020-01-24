@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import ${package}.domain.generic.AbstractDTO;
 import ${package}.service.generic.ICrudService;
 
 /**
@@ -21,8 +22,9 @@ import ${package}.service.generic.ICrudService;
  * @param <DTO>
  * @see ReadController
  * @see ICrudService
+ * @since 1.0
  */
-public abstract class CrudController<DTO> extends ReadController<DTO> {
+public abstract class CrudController<DTO extends AbstractDTO> extends ReadController<DTO> {
 
 	@PostMapping("/create")
 	public DTO create(@Valid @RequestBody DTO dto) {

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
  * 
  * @param <Entity>
  * @param <DTO>
+ * @since 1.0
  */
 @Component
 public interface IMapper<Entity, DTO> extends ListMapper {

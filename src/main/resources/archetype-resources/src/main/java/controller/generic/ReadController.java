@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.querydsl.core.types.Predicate;
 
+import ${package}.domain.generic.AbstractDTO;
 import ${package}.service.generic.ICrudService;
 
 /**
@@ -21,8 +22,9 @@ import ${package}.service.generic.ICrudService;
  * @param <DTO>
  * 
  * @see CrudController
+ * @since 1.0
  */
-public abstract class ReadController<DTO> {
+public abstract class ReadController<DTO extends AbstractDTO> {
 
 	@Autowired
 	protected ICrudService<DTO> service;

@@ -12,8 +12,9 @@ import ${package}.service.mapper.generic.IMapper;
 /**
  *
  * @author Vittorio Andreoni
+ * @since 1.0
  */
 @Mapper(componentModel = "spring")
-public interface UserMapper extends IMapper<User, UserDTO> {	
+public interface UserMapper extends IMapper<User, UserDTO> {
 
 }

@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.security.utils;
 
+import ${package}.domain.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,10 +14,15 @@ import lombok.Data;
  *
  * @see JWTUtils
  * @see JWTRequest
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor
 public class JWTResponse {
 
 	private String token;
+
+	private String username;
+
+	private Role role;
 }

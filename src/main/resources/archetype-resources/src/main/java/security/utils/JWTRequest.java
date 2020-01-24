@@ -18,6 +18,7 @@ import lombok.Data;
  *
  * @see JWTUtils
  * @see JWTResponse
+ * @since 1.0
  */
 @Data
 @AllArgsConstructor

@@ -5,12 +5,20 @@ package ${package}.workshop.utils;
 
 /**
  *
- * @author vittorio
+ * @author Vittorio Andreoni
+ * @since 1.0
  */
 public enum ServiceTypeEnum {
 
-    PUBLIC,
-    PROTECTED,
-    PRIVATE
+	PUBLIC("PUBLIC"), PROTECTED("PUBLIC"), PRIVATE("PUBLIC");
 
+	private String serviceType;
+
+	ServiceTypeEnum(String serviceType) {
+		this.serviceType = serviceType;
+	}
+
+	public String getServiceType() {
+		return serviceType;
+	}
 }

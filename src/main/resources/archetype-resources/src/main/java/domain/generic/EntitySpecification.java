@@ -23,6 +23,7 @@ import lombok.Setter;
  * @param <Entity>
  * 
  * @see Specification
+ * @since 1.0
  */
 @Getter
 @Setter

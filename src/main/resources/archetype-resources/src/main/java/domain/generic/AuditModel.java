@@ -25,6 +25,7 @@ import lombok.Data;
  *
  * @author Vittorio Andreoni
  * @see AuditDTO
+ * @since 1.0
  */
 @Data
 @MappedSuperclass

@@ -18,6 +18,7 @@ import ${package}.annotations.IsOwnerListPostAuth;
  * @author Vittorio Valent
  *
  * @see IsOwnerListPostAuth
+ * @since 1.0
  */
 @NoRepositoryBean
 public interface IPrivateRepository<Entity> extends IRepository<Entity> {
