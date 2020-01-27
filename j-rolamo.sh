@@ -60,9 +60,29 @@ mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=
 
 cd $projectname
 
-echo "[INFO] Building "$projectname
+echo "[INFO] Building $projectname Backend"
 
 mvn clean install
+
+cd src/main/resources/scripts
+
+chmod +x view-ttorio-generate.sh
+
+cd ../../../../frontend/
+
+echo "[INFO] Building $projectname Frontend"
+npm i
+
+echo "[INFO] Installing View-ttorio"
+
+ng add ~/View-ttorio
+
+if [ $run = y ];
+	then gnome-terminal -e "ng serve --open"
+fi
+
+cd ..
+
 
 if [ $run = y ];
 	then mvn spring-boot:run
@@ -70,17 +90,7 @@ else
 	echo "Project created succesfully, have fun!"
 fi
 
-cd $projectname/frontend/
 
-npm install
-
-ng add ~/View-ttorio
-
-npm install
-
-if [ $run = y ];
-	then ng serve --open
-fi
 
 
 
