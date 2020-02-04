@@ -10,7 +10,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import ${package}.workshop.domain.FieldInfo;
+import $
+import it.foo.bar.prova.workshop.domain.FieldInfo;{package}.workshop.domain.FieldInfo;
 
 /**
  * 
@@ -37,21 +38,23 @@ public class ScriptExecutor {
 
 	private String formatFields(List<FieldInfo> fields) {
 		String fieldString = "";
+		String idField = "id:number";
 		for (FieldInfo field : fields) {
 			String fieldName = field.getName();
 			String fieldType = getFrontendFormatFieldType(field.getType());
 			String formattedField = fieldName + ":" + fieldType + ";";
 			fieldString = fieldString + formattedField;
 		}
-		return fieldString;
+		return fieldString + idField;
 	}
 
 	private String getFrontendFormatFieldType(String fieldType) {
-		if (fieldType == "Integer" || fieldType == "Long" || fieldType == "Double" || fieldType == "Float") {
+		if (fieldType.equals("Integer") || fieldType.equals("Long") || fieldType.equals("Double")
+				|| fieldType.equals("Float")) {
 			return "number";
-		} else if (fieldType == "String") {
+		} else if (fieldType.equals("String")) {
 			return "string";
-		} else if (fieldType == "Boolean") {
+		} else if (fieldType.equals("Boolean")) {
 			return "boolean";
 		} else {
 			return fieldType + "DTO";
