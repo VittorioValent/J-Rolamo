@@ -13,7 +13,9 @@ import org.springframework.util.StringUtils;
 
 import com.squareup.javapoet.JavaFile;
 
-import ${package}.workshop.domain.EntityInfo;
+import $
+import it.prova.speriamoquestavadabene.progetto.workshop.domain.EntityInfo;
+import it.prova.speriamoquestavadabene.progetto.workshop.domain.FieldInfo;
 import ${package}.workshop.domain.FieldInfo;
 
 /**
@@ -58,7 +60,7 @@ public abstract class GeneratorUtils {
 		String lineToAppend = "\nINSERT INTO FIELD_INFO (NAME, TYPE, TO_DISPLAY, TO_FILTER, ENTITY_INFO_ID) VALUES \n"
 				+ "('id', 'Long', TRUE, TRUE,  " + fields.get(0).getEntityInfo().getId() + ")";
 		for (FieldInfo field : fields) {
-			lineToAppend = lineToAppend + ",\n('" + field.getName() + "', '" + field.getType() + "',"
+			lineToAppend = lineToAppend + ",\n('" + splitCamelCase(field.getName()) + "', '" + field.getType() + "',"
 					+ field.getToDisplay().toString().toUpperCase() + ", " + field.getToFilter().toString().toUpperCase()
 					+ ", " + field.getEntityInfo().getId() + ")";
 		}
@@ -82,5 +84,9 @@ public abstract class GeneratorUtils {
 		PrintWriter printWriter = new PrintWriter(fileWriter);
 		printWriter.println(lineToAppend);
 		printWriter.close();
+	}
+
+	private static String splitCamelCase(String camelCaseString) {
+		return StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(camelCaseString), " ").toLowerCase();
 	}
 }
