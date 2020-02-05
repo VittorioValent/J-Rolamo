@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
+import it.foo.bar.prova.workshop.utils.GeneratorUtils;
 import ${package}.actuator.ApplicationService;
 import ${package}.workshop.CodeGenerator;
 import ${package}.workshop.domain.EntityInfo;
@@ -75,7 +76,10 @@ public class GeneratorController {
 				field.setEntityInfo(entityInfo);
 				fieldInfoRepository.save(field);
 			}
-
+			
+			GeneratorUtils.insertEntity(entityInfo);
+			GeneratorUtils.insertFields(entityInfo.getFields());
+			
 			applicationService.restart();
 		} catch (IOException e) {
 			e.printStackTrace();

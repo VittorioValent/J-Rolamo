@@ -20,7 +20,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Role extends AbstractDTO {
+public class Role {
 
 	private static final long serialVersionUID = -6940557549482951379L;
 
