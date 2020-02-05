@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-import org.springframework.util.StringUtils;
-
+import org.apache.commons.lang.StringUtils;
 import com.squareup.javapoet.JavaFile;
 
 import ${package}.workshop.domain.EntityInfo;
