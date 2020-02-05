@@ -13,9 +13,7 @@ import org.springframework.util.StringUtils;
 
 import com.squareup.javapoet.JavaFile;
 
-import $
-import it.prova.speriamoquestavadabene.progetto.workshop.domain.EntityInfo;
-import it.prova.speriamoquestavadabene.progetto.workshop.domain.FieldInfo;
+import ${package}.workshop.domain.EntityInfo;
 import ${package}.workshop.domain.FieldInfo;
 
 /**
