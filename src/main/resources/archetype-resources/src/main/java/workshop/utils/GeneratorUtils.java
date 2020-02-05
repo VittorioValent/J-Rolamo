@@ -13,8 +13,8 @@ import org.springframework.util.StringUtils;
 
 import com.squareup.javapoet.JavaFile;
 
-import it.foo.bar.prova.workshop.domain.EntityInfo;
-import it.foo.bar.prova.workshop.domain.FieldInfo;
+import ${package}.workshop.domain.EntityInfo;
+import ${package}.workshop.domain.FieldInfo;
 
 /**
  * @author Vittorio Valent

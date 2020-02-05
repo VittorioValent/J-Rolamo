@@ -3,23 +3,22 @@
 #set( $symbol_escape = '\' )
 package ${package}.workshop.utils;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  *
  * @author Vittorio Andreoni
  * @since 1.0
  */
+@Getter
+@AllArgsConstructor
 public enum ControllerTypeEnum {
 
-	READ("READ"), CRUD("CRUD");
+	READ("READ", 0), CRUD("CRUD", 1);
 
 	private String controllerType;
 
-	ControllerTypeEnum(String controllerType) {
-		this.controllerType = controllerType;
-	}
-
-	public String getControllerType() {
-		return controllerType;
-	}
+	private Integer id;
 
 }

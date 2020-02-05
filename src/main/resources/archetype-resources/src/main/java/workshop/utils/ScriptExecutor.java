@@ -10,8 +10,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import $
-import it.foo.bar.prova.workshop.domain.FieldInfo;{package}.workshop.domain.FieldInfo;
+import ${package}.workshop.domain.FieldInfo;
 
 /**
  * 
