@@ -9,7 +9,7 @@ ng g view-ttorio:dto --name=$1 --fields=$2 --force
 echo "------------------------------------------------------------------------------------\n"
 echo "[INFO] ----------- View-ttorio is creating a new Angular Service -------------------"
 
-ng g view-ttorio:service --name=$1 --force
+ng g view-ttorio:service --name=$1 --public=$3 --protected=$4 --force
 
 echo "------------------------------------------------------------------------------------\n"
 echo "[INFO] ----------- View-ttorio is creating a new Angular Table Component -----------"

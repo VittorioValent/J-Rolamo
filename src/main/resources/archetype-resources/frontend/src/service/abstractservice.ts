@@ -3,9 +3,7 @@ import { Observable, from } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Page } from '../app/utils/page';
 import { Direction } from 'src/app/utils/direction';
-import { Pageable } from 'src/app/utils/pageable';
 import { Filter } from 'src/app/utils/filter';
-import { filter } from 'rxjs/operators';
 import { FieldInfoDTO } from 'src/dto/field-info-dto';
 
 /**
@@ -20,6 +18,8 @@ import { FieldInfoDTO } from 'src/dto/field-info-dto';
 export abstract class AbstractService<DTO> implements Service<DTO> {
 
     type: string;
+    publicSegment: string = '';
+    protectedSegment:string = '';
     port: string = '8081';
 
 
@@ -52,27 +52,27 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
                 params = params.set(filter.filterKey, filter.filterValue);
             });
         }
-        return this._http.get<Page<DTO>>('http://localhost:' + this.port + '/api/' + this.type + '/all', { headers: this.getAuthHeaders(), params: params });
+        return this._http.get<Page<DTO>>('http://localhost:' + this.port + '/api/' + this.type + this.publicSegment + '/all', { headers: this.getAuthHeaders(), params: params });
     }
 
     read(id: number): Observable<DTO> {
-        return this._http.get<DTO>('http://localhost:' + this.port + '/api/' + this.type + '/read?id=' + id, { headers: this.getAuthHeaders() });
+        return this._http.get<DTO>('http://localhost:' + this.port + '/api/' + this.type + this.publicSegment + '/read?id=' + id, { headers: this.getAuthHeaders() });
     }
 
     delete(id: number): Observable<any> {
-        return this._http.delete('http://localhost:' + this.port + '/api/' + this.type + '/delete?id=' + id, { headers: this.getAuthHeaders() });
+        return this._http.delete('http://localhost:' + this.port + '/api/' + this.type + this.protectedSegment + '/delete?id=' + id, { headers: this.getAuthHeaders() });
     }
 
     insert(dto: DTO): Observable<any> {
-        return this._http.post('http://localhost:' + this.port + '/api/' + this.type + '/create', dto, { headers: this.getAuthHeaders() });
+        return this._http.post('http://localhost:' + this.port + '/api/' + this.type + this.protectedSegment + '/create', dto, { headers: this.getAuthHeaders() });
     }
 
     update(dto: DTO): Observable<DTO> {
-        return this._http.put<DTO>('http://localhost:' + this.port + '/api/' + this.type + '/update', dto, { headers: this.getAuthHeaders() });
+        return this._http.put<DTO>('http://localhost:' + this.port + '/api/' + this.type + this.protectedSegment + '/update', dto, { headers: this.getAuthHeaders() });
     }
 
     merge(dto: DTO): Observable<DTO> {
-        return this._http.patch<DTO>('http://localhost:' + this.port + '/api/' + this.type + '/update', dto, { headers: this.getAuthHeaders() });
+        return this._http.patch<DTO>('http://localhost:' + this.port + '/api/' + this.type + this.protectedSegment + '/update', dto, { headers: this.getAuthHeaders() });
     }
 
     getAuthHeaders(): HttpHeaders {

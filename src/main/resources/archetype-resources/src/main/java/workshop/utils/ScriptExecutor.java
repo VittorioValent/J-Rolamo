@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import ${package}.workshop.domain.FieldInfo;
+import ${package}.workshop.domain.EntityInfo;
 
 /**
  * 
@@ -21,10 +22,13 @@ import ${package}.workshop.domain.FieldInfo;
 @Component
 public class ScriptExecutor {
 
-	public void createFrontendClasses(String entityName, List<FieldInfo> fields) throws IOException {
+	public void createFrontendClasses(EntityInfo entity, List<FieldInfo> fields) throws IOException {
 
-		ProcessBuilder pb = new ProcessBuilder("src/main/resources/scripts/view-ttorio-generate.sh", entityName,
-				formatFields(fields));
+		ProcessBuilder pb = new ProcessBuilder("src/main/resources/scripts/view-ttorio-generate.sh",
+				entity.getEntityName(),
+				formatFields(fields),
+				getPublicSegment(entity).toString().toLowerCase(),
+				getProtectedSegment(entity).toString().toLowerCase());
 		Process p = pb.start();
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -59,4 +63,33 @@ public class ScriptExecutor {
 			return fieldType + "DTO";
 		}
 	}
+	
+	private Boolean getPublicSegment(EntityInfo entity) {
+		switch (entity.getServiceType()) {
+			case PUBLIC :
+			case PROTECTED :
+				return true;
+
+			case PRIVATE :
+				return false;
+
+			default :
+				return false;
+		}
+	}
+
+	private Boolean getProtectedSegment(EntityInfo entity) {
+		switch (entity.getServiceType()) {
+			case PUBLIC :
+				return true;
+
+			case PROTECTED :
+			case PRIVATE :
+				return false;
+
+			default :
+				return false;
+		}
+	}
+	
 }
