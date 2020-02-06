@@ -24,8 +24,7 @@ public abstract class GeneratorUtils {
 
 	private static final String PROJECT_PATH = "src/main/java";
 
-	private static final String BASE_PACKAGE = StringUtils.split(GeneratorUtils.class.getPackage().getName(),
-			".workshop")[0];
+	private static final String BASE_PACKAGE = "${package}";
 
 	public static final String ENTITY_PACKAGE = BASE_PACKAGE + ".domain";
 
