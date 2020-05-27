@@ -33,6 +33,11 @@ public class DTOGenerator {
 				.addModifiers(Modifier.PRIVATE)
 				.build();
 
+		FieldSpec serialVersionUID = FieldSpec.builder(long.class, "serialVersionUID")
+				.addModifiers(Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
+				.initializer("$L", 1L)
+				.build();
+		
 		List<FieldSpec> fieldSpecs = new ArrayList<>();
 
 		for (FieldInfo fieldInfo : fields) {
@@ -61,6 +66,7 @@ public class DTOGenerator {
 			dtoClass = TypeSpec.classBuilder(entityName + "DTO")
 					.addModifiers(Modifier.PUBLIC)
 					.addField(id)
+					.addField(serialVersionUID)
 					.addFields(fieldSpecs)
 					.addAnnotation(Data.class)
 					.addAnnotation(AnnotationSpec.builder(EqualsAndHashCode.class)

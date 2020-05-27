@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
+import ${package}.workshop.utils.GeneratorUtils;
 import ${package}.actuator.ApplicationService;
 import ${package}.workshop.CodeGenerator;
 import ${package}.workshop.domain.EntityInfo;
@@ -65,17 +66,33 @@ public class GeneratorController {
 
 	@PostMapping("/entityflow")
 	public void generateEntityFlow(@RequestBody EntityInfo entityInfo) {
+<<<<<<< HEAD
 //		try {
 //			scriptExecutor.createFrontendClasses(entityInfo.getEntityName(), entityInfo.getFields());
+=======
+		try {
+			scriptExecutor.createFrontendClasses(entityInfo, entityInfo.getFields());
+>>>>>>> 944f883eb26b1527567b32e9b39c015af30a884b
 
 //			entityInfo = entityInfoRepository.save(entityInfo);
 			CodeGenerator.generateEntityFlow(entityInfo);
 
+<<<<<<< HEAD
 //			for (FieldInfo field : entityInfo.getFields()) {
 //				field.setEntityInfo(entityInfo);
 //				fieldInfoRepository.save(field);
 //			}
 
+=======
+			for (FieldInfo field : entityInfo.getFields()) {
+				field.setEntityInfo(entityInfo);
+				fieldInfoRepository.save(field);
+			}
+			
+			GeneratorUtils.insertEntity(entityInfo);
+			GeneratorUtils.insertFields(entityInfo.getFields());
+			
+>>>>>>> 944f883eb26b1527567b32e9b39c015af30a884b
 			applicationService.restart();
 //		} catch (IOException e) {
 //			e.printStackTrace();

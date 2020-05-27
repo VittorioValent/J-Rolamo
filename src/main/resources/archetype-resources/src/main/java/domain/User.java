@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class User extends AuditModel implements Serializable {
+public class User extends AuditModel {
 
 	private static final long serialVersionUID = -1622280662634740376L;
 

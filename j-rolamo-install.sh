@@ -19,6 +19,8 @@ git clone https://github.com/VittorioValent/J-Rolamo.git
 
 cd J-Rolamo
 
+git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+
 echo "-----------------------------------------------------------------------------------"
 echo "[INFO] ------------------------ Installing Archetype ------------------------------"
 echo "-----------------------------------------------------------------------------------"

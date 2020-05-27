@@ -4,11 +4,16 @@
 package ${package}.workshop.utils;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
-import org.springframework.util.StringUtils;
-
+import org.apache.commons.lang.StringUtils;
 import com.squareup.javapoet.JavaFile;
+
+import ${package}.workshop.domain.EntityInfo;
+import ${package}.workshop.domain.FieldInfo;
 
 /**
  * @author Vittorio Valent
@@ -19,8 +24,7 @@ public abstract class GeneratorUtils {
 
 	private static final String PROJECT_PATH = "src/main/java";
 
-	private static final String BASE_PACKAGE = StringUtils.split(GeneratorUtils.class.getPackage().getName(),
-			".workshop")[0];
+	private static final String BASE_PACKAGE = "${package}";
 
 	public static final String ENTITY_PACKAGE = BASE_PACKAGE + ".domain";
 
@@ -46,5 +50,39 @@ public abstract class GeneratorUtils {
 			return string;
 		}
 		return string.substring(0, 1).toUpperCase() + string.substring(1);
+	}
+	
+	public static void insertFields(List<FieldInfo> fields) throws IOException {
+		String lineToAppend = "\nINSERT INTO FIELD_INFO (NAME, TYPE, TO_DISPLAY, TO_FILTER, ENTITY_INFO_ID) VALUES \n"
+				+ "('id', 'Long', TRUE, TRUE,  " + fields.get(0).getEntityInfo().getId() + ")";
+		for (FieldInfo field : fields) {
+			lineToAppend = lineToAppend + ",\n('" + splitCamelCase(field.getName()) + "', '" + field.getType() + "',"
+					+ field.getToDisplay().toString().toUpperCase() + ", " + field.getToFilter().toString().toUpperCase()
+					+ ", " + field.getEntityInfo().getId() + ")";
+		}
+		lineToAppend = lineToAppend + ";";
+
+		appendToDataSQL(lineToAppend);
+	}
+
+	public static void insertEntity(EntityInfo entityInfo) throws IOException {
+		String lineToAppend = "\nINSERT INTO ENTITY_INFO ( AUDITABLE, CONTROLLER_TYPE, ENTITY_NAME, SERVICE_TYPE) VALUES \n"
+				+ "(" + (entityInfo.getAuditable() != null
+						? entityInfo.getAuditable().toString().toUpperCase()
+						: Boolean.FALSE.toString().toUpperCase())
+				+ ", " + entityInfo.getControllerType().getId()
+				+ ", '" + entityInfo.getEntityName().toLowerCase() + "', " + entityInfo.getServiceType().getId() + ");";
+		appendToDataSQL(lineToAppend);
+	}
+
+	public static void appendToDataSQL(String lineToAppend) throws IOException {
+		FileWriter fileWriter = new FileWriter("src/main/resources/data.sql", true);
+		PrintWriter printWriter = new PrintWriter(fileWriter);
+		printWriter.println(lineToAppend);
+		printWriter.close();
+	}
+
+	private static String splitCamelCase(String camelCaseString) {
+		return StringUtils.join(StringUtils.splitByCharacterTypeCamelCase(camelCaseString), " ").toLowerCase();
 	}
 }

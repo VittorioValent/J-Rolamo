@@ -15,7 +15,7 @@
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory>src/main/resources</directory>
 			<includes>
-				<include>**/*.properties</include>
+				<include>**/*</include>
 			</includes>
 		</fileSet>
 		<fileSet encoding="UTF-8">
@@ -50,6 +50,15 @@
 				<include>**/*.prefs</include>
 			</includes>
 		</fileSet>
+<<<<<<< HEAD
+=======
+		<fileSet encoding="UTF-8">
+			<directory>frontend</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+>>>>>>> 944f883eb26b1527567b32e9b39c015af30a884b
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory></directory>
 			<includes>
