@@ -21,7 +21,7 @@ import ${package}.security.AuthenticationController;
 /**
  * Util class for JWT handling and generation.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see AuthenticationController
  * @since 1.0

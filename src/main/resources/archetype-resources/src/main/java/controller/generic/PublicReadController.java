@@ -17,7 +17,7 @@ import ${package}.service.generic.ICrudService;
 /**
  * This Controller handles all read-only requests from client.
  *
- * @author Vittorio Andreoni
+ * @author JRolamo
  *
  * @param <DTO>
  *

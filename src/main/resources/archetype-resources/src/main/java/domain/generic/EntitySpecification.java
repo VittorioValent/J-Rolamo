@@ -7,33 +7,29 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-
-import org.springframework.data.jpa.domain.Specification;
-
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.jpa.domain.Specification;
 
 /**
  * All Entity Specifications must extend this class. It has a default filter
  * (the given entity).
- * 
- * 
- * @author Vittorio Valent
+ *
+ *
+ * @author JRolamo
  *
  * @param <Entity>
- * 
+ *
  * @see Specification
  * @since 1.0
  */
 @Getter
 @Setter
-public abstract class EntitySpecification<Entity> implements Specification<Entity> {
+public abstract class EntitySpecification<Entity extends AbstractModel> implements Specification<Entity> {
 
-	private static final long serialVersionUID = -9100466270355479968L;
+    protected Entity filter;
 
-	protected Entity filter;
-
-	@Override
-	public abstract Predicate toPredicate(Root<Entity> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder);
+    @Override
+    public abstract Predicate toPredicate(Root<Entity> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder);
 
 }

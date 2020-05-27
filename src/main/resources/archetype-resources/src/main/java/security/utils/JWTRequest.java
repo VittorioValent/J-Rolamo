@@ -14,7 +14,7 @@ import lombok.Data;
 /**
  * Container and validation Class for username and password
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see JWTUtils
  * @see JWTResponse

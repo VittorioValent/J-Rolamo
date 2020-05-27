@@ -30,7 +30,7 @@ import ${package}.security.utils.LoggedUser;
  * {@link AuthenticationManager} saves the logged user in the security context.
  * 
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see SecurityConfig
  * @since 1.0

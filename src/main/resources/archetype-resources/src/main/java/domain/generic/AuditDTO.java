@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 /**
  * Provides Auditing fields and method-level security access for DTOs
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see AuditModel
  * @since 1.0

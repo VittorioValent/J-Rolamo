@@ -24,7 +24,7 @@ import ${package}.service.mapper.UserMapper;
  * {@link UserDetailsService}. This classs is responsible for encrypting the
  * password.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see PasswordEncoder
  * @since 1.0

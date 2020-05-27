@@ -10,7 +10,7 @@ import ${package}.domain.dto.RoleDTO;
 import ${package}.service.mapper.generic.IMapper;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  * @since 1.0
  *
  */

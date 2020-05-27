@@ -21,7 +21,7 @@ import ${package}.domain.dto.UserDTO;
 import ${package}.repository.UserRepository;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @since 1.0
  */

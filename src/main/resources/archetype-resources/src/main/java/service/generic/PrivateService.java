@@ -3,21 +3,20 @@
 #set( $symbol_escape = '\' )
 package ${package}.service.generic;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import com.querydsl.core.types.Predicate;
-
 import ${package}.annotations.IsOwnerPostAuth;
 import ${package}.annotations.IsOwnerPreAuth;
 import ${package}.domain.generic.AuditDTO;
+import ${package}.domain.generic.AuditModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * generic implementation for those CRUD methods which need some sort of
  * authentication to be invoked. It should be extended by services related to
  * private entities.
  *
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @param <Entity>
  * @param <DTO>
@@ -27,20 +26,20 @@ import ${package}.domain.generic.AuditDTO;
  * @see AuditDTO
  * @since 1.0
  */
-public abstract class PrivateService<Entity, DTO extends AuditDTO> extends ProtectedService<Entity, DTO> {
+public abstract class PrivateService<Entity extends AuditModel, DTO extends AuditDTO> extends ProtectedService<Entity, DTO> {
 
-	@Override
-	@IsOwnerPostAuth
-	public DTO read(Long id) {
-		return mapper.toDTO(repository.findById(id).get());
-	}
+    @Override
+    @IsOwnerPostAuth
+    public DTO read(Long id) {
+        return mapper.toDTO(repository.findById(id).get());
+    }
 
-	@Override
-	public Page<DTO> getAll(Predicate predicate, Pageable pageable) {
-		if (predicate == null) {
-			return mapper.toDTO(repository.findAll(pageable));
-		} else {
-			return mapper.toDTO(repository.findAll(predicate, pageable));
-		}
-	}
+    @Override
+    public Page<DTO> getAll(Predicate predicate, Pageable pageable) {
+        if (predicate == null) {
+            return mapper.toDTO(repository.findAll(pageable));
+        } else {
+            return mapper.toDTO(repository.findAll(predicate, pageable));
+        }
+    }
 }

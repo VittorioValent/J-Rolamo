@@ -10,7 +10,7 @@ import lombok.Data;
 /**
  * Container Class for JWT String
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see JWTUtils
  * @see JWTRequest

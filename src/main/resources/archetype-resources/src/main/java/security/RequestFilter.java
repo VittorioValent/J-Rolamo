@@ -25,7 +25,7 @@ import ${package}.security.utils.JWTUtils;
  * This class is responsible for filtering every request and return 401 error if
  * client is not authenticated.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  * @since 1.0
  *
  */

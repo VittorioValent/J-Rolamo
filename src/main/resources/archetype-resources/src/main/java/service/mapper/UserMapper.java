@@ -11,7 +11,7 @@ import ${package}.service.mapper.generic.IMapper;
 
 /**
  *
- * @author Vittorio Andreoni
+ * @author JRolamo
  * @since 1.0
  */
 @Mapper(componentModel = "spring")

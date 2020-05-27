@@ -11,7 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 /**
  *
- * @author Vittorio Andreoni
+ * @author JRolamo
  * @since 1.0
  */
 @Configuration

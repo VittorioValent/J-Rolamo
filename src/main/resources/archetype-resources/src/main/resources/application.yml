@@ -1,0 +1,31 @@
+
+#####  Tomcat Server Config #####
+server.port: 8081
+
+#####  H2 DB Settings #####
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: true
+    hibernate.ddl-auto: update
+  h2.console.enabled: true
+
+#####  DEV TOOLS Settings #####
+  devtools:
+    livereload.enabled: true
+    restart.enabled: true
+##### ACTUATOR SETTINGS #####
+management.endpoints:
+  web.exposure.include: '*'
+  shutdown.enabled: true
+dirty.fix.enabled: true
+
+##### J-ROLAMO SETTINGS #####
+jrolamo.codegenerator.package.basepackage: ${groupId}.${artifactId}
+
+jrolamo.codegenerator.endpoint-enabled: true

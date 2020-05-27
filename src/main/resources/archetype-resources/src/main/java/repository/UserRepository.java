@@ -9,7 +9,7 @@ import ${package}.domain.User;
 import ${package}.repository.generic.IRepository;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @since 1.0
  */

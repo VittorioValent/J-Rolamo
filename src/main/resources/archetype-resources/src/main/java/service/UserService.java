@@ -10,7 +10,7 @@ import ${package}.domain.dto.UserDTO;
 import ${package}.service.generic.PrivateService;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @since 1.0
  */

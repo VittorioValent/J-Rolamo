@@ -6,11 +6,10 @@ package ${package}.domain.generic;
 import java.io.Serializable;
 
 /**
- * @author JRolamo
  *
+ * @author JRolamo
  */
-public abstract class AbstractDTO implements Serializable {
+public abstract class AbstractModel implements Serializable {
 
     public abstract Long getId();
-
 }

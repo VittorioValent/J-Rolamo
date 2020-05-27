@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @since 1.0
  */

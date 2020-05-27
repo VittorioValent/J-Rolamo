@@ -18,7 +18,7 @@ import ${package}.config.SecurityConfig;
 /**
  * This class starts the authentication scheme as a JWT EntryPoint
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @see SecurityConfig
  * @since 1.0

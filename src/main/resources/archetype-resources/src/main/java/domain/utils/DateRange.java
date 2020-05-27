@@ -12,7 +12,7 @@ import lombok.Data;
  * Utility class: instead of passsing two dates argument in a mathod (ex
  * start-date, end-date), you can use this object.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  */
 @Data

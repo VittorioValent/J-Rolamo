@@ -21,7 +21,7 @@ import ${package}.domain.dto.RoleDTO;
 import ${package}.repository.RoleRepository;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @since 1.0
  */

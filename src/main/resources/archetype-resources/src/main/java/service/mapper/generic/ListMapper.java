@@ -8,7 +8,7 @@ import java.util.List;
 import org.mapstruct.Named;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  * @since 1.0
  *
  */

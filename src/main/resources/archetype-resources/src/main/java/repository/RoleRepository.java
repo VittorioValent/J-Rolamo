@@ -11,7 +11,7 @@ import ${package}.domain.Role;
 import ${package}.repository.generic.IRepository;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  * @since 1.0
  *
  */

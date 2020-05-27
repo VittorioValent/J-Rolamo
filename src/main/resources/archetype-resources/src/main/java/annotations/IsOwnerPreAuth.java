@@ -15,7 +15,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
  * Method-level security annotation: returns 403 error if the owner of the
  * parameter entity is not the logged user nor an admin.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  * @since 1.0
  *
  */

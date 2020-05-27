@@ -3,6 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.config;
 
+import com.google.common.collect.ImmutableList;
+import ${package}.security.JWTAuthenticationEntryPoint;
+import ${package}.security.RequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,15 +26,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.google.common.collect.ImmutableList;
-
-import ${package}.security.JWTAuthenticationEntryPoint;
-import ${package}.security.RequestFilter;
-
 /**
  * Spring Security Configuration Class
  *
- * @author Vittorio Andreoni
+ * @author JRolamo
  * @since 1.0
  */
 @Configuration
@@ -39,87 +37,89 @@ import ${package}.security.RequestFilter;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private JWTAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    @Autowired
+    private JWTAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-	@Autowired
-	private RequestFilter requestFilter;
+    @Autowired
+    private RequestFilter requestFilter;
 
-	@Autowired
-	/**
-	 * Configure AuthenticationManager so that it knows from where to load user.
-	 * For matching credentials Use BCryptPasswordEncoder
-	 *
-	 * @param auth
-	 * @throws Exception
-	 */
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-	}
+    @Autowired
+    /**
+     * Configure AuthenticationManager so that it knows from where to load user.
+     * For matching credentials Use BCryptPasswordEncoder
+     *
+     * @param auth
+     * @throws Exception
+     */
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
-	/**
-	 * Configures {@link HttpSecurity} params like
-	 * <ul>
-	 * <li>CSRF and CORS,
-	 * <li>Auth path whitelist,
-	 * <li>{@link Header}
-	 * <li>{@link JWTAuthenticationEntryPoint},
-	 * <li>{@link SessionManagementConfigurer}.
-	 * </ul>
-	 */
-	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.csrf().disable()
-				.authorizeRequests()
-				.antMatchers(AUTH_WHITELIST).permitAll()
-				.anyRequest().authenticated()
-				.and().csrf().ignoringAntMatchers("/**")
-				.and().headers().frameOptions().sameOrigin()
-				.and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
-				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    /**
+     * Configures {@link HttpSecurity} params like
+     * <ul>
+     * <li>CSRF and CORS,
+     * <li>Auth path whitelist,
+     * <li>{@link Header}
+     * <li>{@link JWTAuthenticationEntryPoint},
+     * <li>{@link SessionManagementConfigurer}.
+     * </ul>
+     */
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.csrf().disable()
+                .authorizeRequests()
+                .antMatchers(AUTH_WHITELIST).permitAll()
+                .anyRequest().authenticated()
+                .and().csrf().ignoringAntMatchers("/**")
+                .and().headers().frameOptions().sameOrigin()
+                .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-		httpSecurity.cors();
+        httpSecurity.cors();
 
-		httpSecurity.addFilterBefore(requestFilter, UsernamePasswordAuthenticationFilter.class);
-	}
+        httpSecurity.addFilterBefore(requestFilter, UsernamePasswordAuthenticationFilter.class);
+    }
 
-	/**
-	 * All these path segments are auth-free
-	 */
-	private static final String[] AUTH_WHITELIST = {
-			"/v2/api-docs/**",
-			"/swagger-**",
-			"/h2-console/**",
-			"/api/**/public/**",
-			"/authentication/public/**",
-			"/swagger-resources/**",
-			"/webjars/**"
-	};
+    /**
+     * All these path segments are auth-free
+     */
+    private static final String[] AUTH_WHITELIST = {
+        "/v2/api-docs/**",
+        "/swagger-**",
+        "/h2-console/**",
+        "/api/**/public/**",
+        "/authentication/public/**",
+        "/swagger-resources/**",
+        "/webjars/**",
+        "/workshop/**",
+        "/actuator/**"
+    };
 
-	@Bean
-	public CorsConfigurationSource corsConfigurationSource() {
-		final CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins(ImmutableList.of("*"));
-		configuration.setAllowedMethods(ImmutableList.of("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-		configuration.setAllowCredentials(true);
-		configuration.setAllowedHeaders(ImmutableList.of("Authorization", "Cache-Control", "Content-Type",
-				"Access-Control-Allow-Headers", "Access-Control-Allow-Origin"));
-		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration);
-		return source;
-	}
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        final CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(ImmutableList.of("*"));
+        configuration.setAllowedMethods(ImmutableList.of("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedHeaders(ImmutableList.of("Authorization", "Cache-Control", "Content-Type",
+                "Access-Control-Allow-Headers", "Access-Control-Allow-Origin"));
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }

@@ -15,7 +15,7 @@ import org.springframework.data.jpa.repository.Query;
  * keep pagination as well. If the logged user has Admin Role then the filter
  * will not be set on.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  * @since 1.0
  *
  */

@@ -56,33 +56,13 @@ read run
 
 echo "Creating a new Project with name "$projectname
 
-mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=j-rolamo -DarchetypeVersion=1.1-SNAPSHOT -DgroupId=$package -Dpackage=$package.$projectname -DartifactId=$projectname -Dversion=1.0-SNAPSHOT -Dname=$projectname
+mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=j-rolamo -DarchetypeVersion=1.4 -DgroupId=$package -Dpackage=$package.$projectname -DartifactId=$projectname -Dversion=1.0-SNAPSHOT -Dname=$projectname
 
 cd $projectname
 
 echo "[INFO] Building $projectname Backend"
 
 mvn clean install
-
-cd src/main/resources/scripts
-
-chmod +x view-ttorio-generate.sh
-
-cd ../../../../frontend/
-
-echo "[INFO] Building $projectname Frontend"
-npm i
-
-echo "[INFO] Installing View-ttorio"
-
-ng add ~/View-ttorio
-
-if [ $run = y ];
-	then gnome-terminal -e "ng serve --open"
-fi
-
-cd ..
-
 
 if [ $run = y ];
 	then mvn spring-boot:run

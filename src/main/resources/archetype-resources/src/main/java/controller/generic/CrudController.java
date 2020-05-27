@@ -18,7 +18,7 @@ import ${package}.service.generic.ICrudService;
  * This controller contains all CRUD methods. Notice that method
  * {@code create(<DTO> dto)} needs a @Valid input.
  * 
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @param <DTO>
  * @see ReadController

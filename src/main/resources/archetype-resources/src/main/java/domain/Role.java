@@ -3,31 +3,28 @@
 #set( $symbol_escape = '\' )
 package ${package}.domain;
 
+import ${package}.domain.generic.AbstractModel;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import ${package}.domain.generic.AbstractDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * @author Vittorio Valent
+ * @author JRolamo
  *
  * @since 1.0
  */
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Role {
+public class Role extends AbstractModel {
 
-	private static final long serialVersionUID = -6940557549482951379L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	private String name;
+    private String name;
 
 }
