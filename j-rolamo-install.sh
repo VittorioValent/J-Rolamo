@@ -17,16 +17,34 @@ cd ~
 
 git clone https://github.com/VittorioValent/J-Rolamo.git
 
+git clone https://github.com/VittorioValent/j-rolamo-code-generator.git
+
 cd J-Rolamo
 
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+
+cd ~/j-rolamo-code-generator
+
+git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+
+echo "-----------------------------------------------------------------------------------"
+echo "[INFO] ------------------------- Installing Library -------------------------------"
+echo "-----------------------------------------------------------------------------------"
+echo
+
+mvn install
+
 
 echo "-----------------------------------------------------------------------------------"
 echo "[INFO] ------------------------ Installing Archetype ------------------------------"
 echo "-----------------------------------------------------------------------------------"
 echo
 
+cd ~/J-Rolamo
+
 mvn install
+
+
 
 echo "-----------------------------------------------------------------------------------"
 echo "[INFO] ------------------------ Installing j-rolamo command -----------------------"

@@ -56,11 +56,9 @@ read run
 
 echo "Creating a new Project with name "$projectname
 
-mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=j-rolamo -DarchetypeVersion=1.4 -DgroupId=$package -Dpackage=$package.$projectname -DartifactId=$projectname -Dversion=1.0-SNAPSHOT -Dname=$projectname
+mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=j-rolamo -DarchetypeVersion=1.4 -DgroupId=$package -Dpackage=$package.$projectname -DartifactId=$projectname -Dversion=0.1-SNAPSHOT -Dname=$projectname
 
 cd $projectname
-
-echo "[INFO] Building $projectname Backend"
 
 mvn clean install
 
