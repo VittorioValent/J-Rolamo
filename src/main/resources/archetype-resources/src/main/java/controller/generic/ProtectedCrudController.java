@@ -33,9 +33,9 @@ public abstract class ProtectedCrudController<DTO extends AbstractDTO> extends P
 		return service.create(dto);
 	}
 
-	@DeleteMapping("/delete")
-	public void delete(@RequestBody DTO dto) {
-		service.delete(dto);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@RequestParam("id") Long id) {
+		service.delete(id);
 	}
 
 	@PutMapping("/update")

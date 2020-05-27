@@ -50,8 +50,8 @@ public abstract class PublicService<Entity, DTO> implements IService<Entity, DTO
 	}
 
 	@Override
-	public void delete(DTO dto) {
-		repository.delete(mapper.toEntity(dto));
+	public void delete(Long id) {
+		repository.deleteById(id);
 	}
 
 	@Override

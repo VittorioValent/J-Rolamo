@@ -26,7 +26,7 @@ public interface ICrudService<DTO> {
 
 	public DTO create(DTO entity);
 
-	public void delete(DTO entity);
+	public void delete(Long id);
 
 	public DTO update(DTO entity);
 

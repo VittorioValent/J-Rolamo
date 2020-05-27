@@ -15,9 +15,10 @@ public abstract class ProtectedService<Entity, DTO> extends PublicService<Entity
 
 	@Override
 	@IsOwnerPreAuth
-	public void delete(DTO dto) {
-		repository.delete(mapper.toEntity(dto));
+	public void delete(Long id) {
+		repository.deleteById(id);
 	}
+
 
 	@Override
 	@IsOwnerPreAuth

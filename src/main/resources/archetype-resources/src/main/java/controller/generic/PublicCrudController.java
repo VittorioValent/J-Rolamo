@@ -33,9 +33,9 @@ public abstract class PublicCrudController<DTO extends AbstractDTO> extends Publ
 		return service.create(dto);
 	}
 
-	@DeleteMapping("/public/delete")
-	public void delete(@RequestBody DTO dto) {
-		service.delete(dto);
+	@DeleteMapping("/public/delete/{id}")
+	public void delete(@RequestParam("id") Long id) {
+		service.delete(id);
 	}
 
 	@PutMapping("/public/update")

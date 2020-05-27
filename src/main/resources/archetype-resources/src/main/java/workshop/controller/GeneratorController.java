@@ -65,20 +65,20 @@ public class GeneratorController {
 
 	@PostMapping("/entityflow")
 	public void generateEntityFlow(@RequestBody EntityInfo entityInfo) {
-		try {
-			scriptExecutor.createFrontendClasses(entityInfo.getEntityName(), entityInfo.getFields());
+//		try {
+//			scriptExecutor.createFrontendClasses(entityInfo.getEntityName(), entityInfo.getFields());
 
-			entityInfo = entityInfoRepository.save(entityInfo);
+//			entityInfo = entityInfoRepository.save(entityInfo);
 			CodeGenerator.generateEntityFlow(entityInfo);
 
-			for (FieldInfo field : entityInfo.getFields()) {
-				field.setEntityInfo(entityInfo);
-				fieldInfoRepository.save(field);
-			}
+//			for (FieldInfo field : entityInfo.getFields()) {
+//				field.setEntityInfo(entityInfo);
+//				fieldInfoRepository.save(field);
+//			}
 
 			applicationService.restart();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 }
