@@ -16,8 +16,8 @@
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <io.springfox.version>2.9.2</io.springfox.version>
-        <it.contrader.jrolamo-code-generator.version>0.0.3</it.contrader.jrolamo-code-generator.version>
-        <it.contrader.jrolamo-generics.version>0.0.1</it.contrader.jrolamo-generics.version>
+        <it.contrader.jrolamo-code-generator.version>0.0.4</it.contrader.jrolamo-code-generator.version>
+        <it.contrader.jrolamo-generics.version>0.0.2</it.contrader.jrolamo-generics.version>
     </properties>
 
     <dependencies>

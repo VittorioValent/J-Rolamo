@@ -13,20 +13,20 @@ cd ~
 cd J-Rolamo
 
 git pull origin master
-
+git fetch
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 cd ~/j-rolamo-code-generator
 
 git pull origin master
-
+git fetch
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 
 cd ~/j-rolamo-generics
 
 git pull origin master
-
+git fetch
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 echo "-----------------------------------------------------------------------------------"
@@ -37,7 +37,7 @@ echo
 mvn install
 
 
-cd ~/j-rolamo-generics
+cd ~/j-rolamo-code-generator
 
 mvn clean install
 

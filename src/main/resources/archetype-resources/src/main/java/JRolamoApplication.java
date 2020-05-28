@@ -3,11 +3,10 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
-import it.contrader.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
-import it.contrader.jrolamo.generics.JRolamoGenerics;
+import it.contrader.jrolamo.codegenerator.workshop.EnableCodeGenerator;
+import it.contrader.jrolamo.generics.EnableGenerics;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Starter class for application
@@ -15,8 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @author JRolamo
  *
  */
+@EnableGenerics
+@EnableCodeGenerator
 @SpringBootApplication
-@ComponentScan(basePackageClasses = {JRolamoApplication.class, JRolamoCodeGenerator.class, JRolamoGenerics.class})
 public class JRolamoApplication {
 
     public static void main(String[] args) {
