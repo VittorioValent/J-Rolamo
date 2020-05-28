@@ -12,18 +12,21 @@ cd ~
 
 cd J-Rolamo
 
-git pull
+git pull origin master
+
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 cd ~/j-rolamo-code-generator
 
-git pull
+git pull origin master
+
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 
 cd ~/j-rolamo-generics
 
-git pull
+git pull origin master
+
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
 echo "-----------------------------------------------------------------------------------"
