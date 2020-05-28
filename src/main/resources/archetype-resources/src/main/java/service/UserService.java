@@ -3,11 +3,10 @@
 #set( $symbol_escape = '\' )
 package ${package}.service;
 
-import org.springframework.stereotype.Service;
-
+import it.contrader.jrolamo.generics.service.PrivateService;
 import ${package}.domain.User;
-import ${package}.domain.dto.UserDTO;
-import ${package}.service.generic.PrivateService;
+import ${package}.dto.UserDTO;
+import org.springframework.stereotype.Service;
 
 /**
  * @author JRolamo

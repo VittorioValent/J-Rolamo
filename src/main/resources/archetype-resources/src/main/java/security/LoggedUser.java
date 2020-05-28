@@ -1,13 +1,12 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.security.utils;
+package ${package}.security;
 
 import ${package}.domain.Role;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.persistence.MappedSuperclass;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,14 +20,13 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  */
 @Data
-@MappedSuperclass
 public class LoggedUser implements UserDetails {
 
     private static final long serialVersionUID = 1L;
 
-    private String username;
+    private final String username;
 
-    private String password;
+    private final String password;
 
     private final boolean accountNonExpired;
 
@@ -38,7 +36,7 @@ public class LoggedUser implements UserDetails {
 
     private final boolean enabled;
 
-    private Role role;
+    private final Role role;
 
     public LoggedUser(String username, String password, Role role, boolean accountNonExpired, boolean credentialNonExpired,
             boolean accountNonLocked, boolean enabled) {

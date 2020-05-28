@@ -1,11 +1,10 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.domain.dto;
+package ${package}.dto;
 
+import it.contrader.jrolamo.generics.domain.AuditDTO;
 import javax.validation.constraints.NotEmpty;
-
-import ${package}.domain.generic.AuditDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,8 +16,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class UserDTO extends AuditDTO {
-
-	private static final long serialVersionUID = 7373450660492687410L;
 
 	private Long id;
 

@@ -3,10 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.repository;
 
-import org.springframework.stereotype.Repository;
-
+import it.contrader.jrolamo.generics.repositoy.IRepository;
 import ${package}.domain.User;
-import ${package}.repository.generic.IRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author JRolamo

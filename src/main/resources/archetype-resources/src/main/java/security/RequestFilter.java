@@ -19,7 +19,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.jsonwebtoken.ExpiredJwtException;
-import ${package}.security.utils.JWTUtils;
 
 /**
  * This class is responsible for filtering every request and return 401 error if

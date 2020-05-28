@@ -1,13 +1,12 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.service.mapper;
+package ${package}.mapper;
 
-import org.mapstruct.Mapper;
-
+import it.contrader.jrolamo.generics.mapper.IMapper;
 import ${package}.domain.User;
-import ${package}.domain.dto.UserDTO;
-import ${package}.service.mapper.generic.IMapper;
+import ${package}.dto.UserDTO;
+import org.mapstruct.Mapper;
 
 /**
  *

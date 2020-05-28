@@ -56,7 +56,7 @@ read run
 
 echo "Creating a new Project with name "$projectname
 
-mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=j-rolamo -DarchetypeVersion=1.5 -DgroupId=$package -Dpackage=$package.$projectname -DartifactId=$projectname -Dversion=0.1-SNAPSHOT -Dname=$projectname
+mvn archetype:generate -B -DarchetypeGroupId=it.contrader -DarchetypeArtifactId=j-rolamo -DarchetypeVersion=1.6-SNAPSHOT -DgroupId=$package -Dpackage=$package.$projectname -DartifactId=$projectname -Dversion=0.1-SNAPSHOT -Dname=$projectname
 
 cd $projectname
 

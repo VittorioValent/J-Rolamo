@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.security.utils;
+package ${package}.security;
 
 import java.io.Serializable;
 import java.util.Date;

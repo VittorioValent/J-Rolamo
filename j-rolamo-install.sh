@@ -9,15 +9,17 @@ echo "--------------------------------------------------------------------------
 echo
 
 echo "-----------------------------------------------------------------------------------"
-echo "[INFO] ------------------------ Downloading Repository ----------------------------"
+echo "[INFO] ------------------------ Downloading Repositories ----------------------------"
 echo "-----------------------------------------------------------------------------------"
 echo
 
-cd ~ 
+cd ~
 
 git clone https://github.com/VittorioValent/J-Rolamo.git
 
 git clone https://github.com/VittorioValent/j-rolamo-code-generator.git
+
+git clone https://github.com/VittorioValent/j-rolamo-generics.git
 
 cd J-Rolamo
 
@@ -27,13 +29,20 @@ cd ~/j-rolamo-code-generator
 
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
+cd ~/j-rolamo-generics
+
+git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+
 echo "-----------------------------------------------------------------------------------"
-echo "[INFO] ------------------------- Installing Library -------------------------------"
+echo "[INFO] ------------------------- Installing Libraries -------------------------------"
 echo "-----------------------------------------------------------------------------------"
 echo
 
 mvn install
 
+cd ~/j-rolamo-generics
+
+mvn clean install
 
 echo "-----------------------------------------------------------------------------------"
 echo "[INFO] ------------------------ Installing Archetype ------------------------------"
@@ -44,8 +53,6 @@ cd ~/J-Rolamo
 
 mvn install
 
-
-
 echo "-----------------------------------------------------------------------------------"
 echo "[INFO] ------------------------ Installing j-rolamo command -----------------------"
 echo "-----------------------------------------------------------------------------------"
@@ -55,7 +62,7 @@ chmod +x j-rolamo.sh
 
 cp ./j-rolamo.sh ~/
 
-cd ~ 
+cd ~
 
 mkdir -p bin
 

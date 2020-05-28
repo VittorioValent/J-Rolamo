@@ -1,9 +1,9 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.domain.dto;
+package ${package}.dto;
 
-import ${package}.domain.generic.AbstractDTO;
+import it.contrader.jrolamo.generics.domain.AbstractDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,8 +15,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class RoleDTO extends AbstractDTO {
-
-	private static final long serialVersionUID = -1774919811088884074L;
 
 	private Long id;
 

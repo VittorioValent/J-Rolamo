@@ -1,10 +1,10 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.domain.filter;
+package ${package}.filter;
 
+import it.contrader.jrolamo.generics.domain.EntitySpecification;
 import ${package}.domain.User;
-import ${package}.domain.generic.EntitySpecification;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;

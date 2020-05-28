@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.domain;
 
-import ${package}.domain.generic.AuditModel;
+import it.contrader.jrolamo.generics.domain.AuditModel;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

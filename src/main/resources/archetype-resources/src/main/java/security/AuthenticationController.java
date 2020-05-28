@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ${package}.config.SecurityConfig;
-import ${package}.domain.dto.UserDTO;
-import ${package}.security.utils.JWTRequest;
-import ${package}.security.utils.JWTResponse;
-import ${package}.security.utils.JWTUtils;
-import ${package}.security.utils.LoggedUser;
+import ${package}.dto.UserDTO;
 
 /**
  * Controller that handles authentication and registration. With

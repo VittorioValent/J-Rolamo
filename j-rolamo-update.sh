@@ -8,7 +8,7 @@ echo "[INFO] ---------------------- Starting  J-Rolamo Update ------------------
 echo "-----------------------------------------------------------------------------------"
 echo
 
-cd ~ 
+cd ~
 
 cd J-Rolamo
 
@@ -20,13 +20,23 @@ cd ~/j-rolamo-code-generator
 git pull
 git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
+
+cd ~/j-rolamo-generics
+
+git pull
+git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+
 echo "-----------------------------------------------------------------------------------"
-echo "[INFO] -------------------------- Updating Library --------------------------------"
+echo "[INFO] -------------------------- Updating Libraries --------------------------------"
 echo "-----------------------------------------------------------------------------------"
 echo
 
 mvn install
 
+
+cd ~/j-rolamo-generics
+
+mvn clean install
 
 echo "-----------------------------------------------------------------------------------"
 echo "[INFO] ------------------------- Updating Archetype -------------------------------"
@@ -41,7 +51,7 @@ chmod +x j-rolamo.sh
 
 cp ./j-rolamo.sh ~/
 
-cd ~ 
+cd ~
 
 mkdir -p bin
 

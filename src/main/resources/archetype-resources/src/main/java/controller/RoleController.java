@@ -3,6 +3,12 @@
 #set( $symbol_escape = '\' )
 package ${package}.controller;
 
+import com.querydsl.core.types.Predicate;
+import io.swagger.annotations.Api;
+import it.contrader.jrolamo.generics.controller.ProtectedCrudController;
+import ${package}.domain.Role;
+import ${package}.dto.RoleDTO;
+import ${package}.repository.RoleRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
@@ -11,14 +17,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.querydsl.core.types.Predicate;
-
-import io.swagger.annotations.Api;
-import ${package}.controller.generic.ProtectedCrudController;
-import ${package}.domain.Role;
-import ${package}.domain.dto.RoleDTO;
-import ${package}.repository.RoleRepository;
 
 /**
  * @author JRolamo

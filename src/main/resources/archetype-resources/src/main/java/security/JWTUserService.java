@@ -12,18 +12,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ${package}.domain.User;
-import ${package}.domain.dto.UserDTO;
+import ${package}.dto.UserDTO;
 import ${package}.repository.RoleRepository;
 import ${package}.repository.UserRepository;
-import ${package}.security.utils.LoggedUser;
-import ${package}.service.mapper.UserMapper;
+import ${package}.mapper.UserMapper;
 
 /**
- * 
+ *
  * Authentication and registration Service. It implements
  * {@link UserDetailsService}. This classs is responsible for encrypting the
  * password.
- * 
+ *
  * @author JRolamo
  *
  * @see PasswordEncoder

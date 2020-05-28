@@ -1,6 +1,5 @@
 /**
- * Author:  Vittorio Andreoni
- * Created: 29-ott-2019
+ * Author:  Vittorio Valent
  */
 
 INSERT INTO ROLE(NAME) VALUES

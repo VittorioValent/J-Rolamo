@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.config;
 
-import ${package}.domain.generic.AuditorAwareImpl;
+import it.contrader.jrolamo.generics.domain.AuditorAwareImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
