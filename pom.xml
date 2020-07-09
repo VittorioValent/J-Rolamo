@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>it.contrader</groupId>
     <artifactId>j-rolamo</artifactId>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
     <name>j-rolamo</name>
     <description>Build your own web-app backend in few steps</description>
@@ -42,7 +42,7 @@
     <scm>
         <url>https://github.com/VittorioValent/J-Rolamo</url>
         <connection>scm:git:https://github.com/VittorioValent/J-Rolamo</connection>
-        <tag>j-rolamo-1.8</tag>
+        <tag>HEAD</tag>
     </scm>
     <developers>
         <developer>
