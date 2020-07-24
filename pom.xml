@@ -57,7 +57,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/VittorioValent/J-Rolamo</url>
+            <url>https://maven.pkg.github.com/VittorioValent/j-rolamo-monolithic</url>
         </repository>
     </distributionManagement>
 
