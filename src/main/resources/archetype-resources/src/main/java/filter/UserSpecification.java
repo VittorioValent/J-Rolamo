@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.filter;
 
-import it.contrader.jrolamo.generics.domain.EntitySpecification;
+import it.jrolamo.generics.domain.EntitySpecification;
 import ${package}.domain.User;
 import java.util.ArrayList;
 import java.util.List;

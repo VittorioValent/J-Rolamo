@@ -16,9 +16,17 @@
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <io.springfox.version>2.9.2</io.springfox.version>
-        <it.contrader.jrolamo-code-generator.version>0.0.4</it.contrader.jrolamo-code-generator.version>
-        <it.contrader.jrolamo-generics.version>0.0.2</it.contrader.jrolamo-generics.version>
+        <it.jrolamo.j-rolamo-code-generator.version>0.0.5</it.jrolamo.j-rolamo-code-generator.version>
+        <it.jrolamo.j-rolamo-generics.version>0.0.4</it.jrolamo.j-rolamo-generics.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub VittorioValent Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/VittorioValent</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!-- USEFUL STUFF -->
@@ -33,14 +41,14 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>it.contrader</groupId>
-            <artifactId>jrolamo-code-generator</artifactId>
-            <version>${it.contrader.jrolamo-code-generator.version}</version>
+            <groupId>it.jrolamo</groupId>
+            <artifactId>j-rolamo-code-generator</artifactId>
+            <version>${it.jrolamo.j-rolamo-code-generator.version}</version>
         </dependency>
         <dependency>
-            <groupId>it.contrader</groupId>
-            <artifactId>jrolamo-generics</artifactId>
-            <version>${it.contrader.jrolamo-generics.version}</version>
+            <groupId>it.jrolamo</groupId>
+            <artifactId>j-rolamo-generics</artifactId>
+            <version>${it.jrolamo.j-rolamo-generics.version}</version>
         </dependency>
 
         <!-- MAPSTRUCT -->

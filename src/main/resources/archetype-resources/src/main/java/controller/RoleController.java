@@ -5,7 +5,7 @@ package ${package}.controller;
 
 import com.querydsl.core.types.Predicate;
 import io.swagger.annotations.Api;
-import it.contrader.jrolamo.generics.controller.ProtectedCrudController;
+import it.jrolamo.generics.controller.ProtectedCrudController;
 import ${package}.domain.Role;
 import ${package}.dto.RoleDTO;
 import ${package}.repository.RoleRepository;

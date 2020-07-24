@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.mapper;
 
-import it.contrader.jrolamo.generics.mapper.IMapper;
+import it.jrolamo.generics.mapper.IMapper;
 import ${package}.domain.User;
 import ${package}.dto.UserDTO;
 import org.mapstruct.Mapper;

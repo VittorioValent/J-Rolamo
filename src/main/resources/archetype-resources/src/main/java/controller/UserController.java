@@ -5,7 +5,7 @@ package ${package}.controller;
 
 import com.querydsl.core.types.Predicate;
 import io.swagger.annotations.Api;
-import it.contrader.jrolamo.generics.controller.PrivateCrudController;
+import it.jrolamo.generics.controller.PrivateCrudController;
 import ${package}.domain.User;
 import ${package}.dto.UserDTO;
 import ${package}.repository.UserRepository;

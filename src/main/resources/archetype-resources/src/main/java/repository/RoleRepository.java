@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.repository;
 
-import it.contrader.jrolamo.generics.repositoy.IRepository;
+import it.jrolamo.generics.repositoy.IRepository;
 import ${package}.domain.Role;
 import java.util.List;
 import org.springframework.stereotype.Repository;

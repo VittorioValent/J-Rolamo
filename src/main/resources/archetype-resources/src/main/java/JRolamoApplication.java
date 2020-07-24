@@ -3,8 +3,8 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
-import it.contrader.jrolamo.codegenerator.workshop.EnableCodeGenerator;
-import it.contrader.jrolamo.generics.EnableGenerics;
+import it.jrolamo.codegenerator.workshop.EnableCodeGenerator;
+import it.jrolamo.generics.EnableGenerics;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

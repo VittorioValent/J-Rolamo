@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.dto;
 
-import it.contrader.jrolamo.generics.domain.AuditDTO;
+import it.jrolamo.generics.domain.AuditDTO;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

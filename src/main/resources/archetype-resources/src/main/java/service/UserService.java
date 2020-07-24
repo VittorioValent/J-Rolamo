@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.service;
 
-import it.contrader.jrolamo.generics.service.PrivateService;
+import it.jrolamo.generics.service.PrivateService;
 import ${package}.domain.User;
 import ${package}.dto.UserDTO;
 import org.springframework.stereotype.Service;
